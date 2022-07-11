@@ -1,0 +1,39 @@
+server:
+  port: 8091
+  servlet:
+    context-path: /
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+spring:
+  profiles:
+    include: oauth
+  jpa:
+    hibernate:
+      ddl-auto: update #create update none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true
+  devtools:
+    livereload:
+      enabled: true
+    freemarker:
+      cache: false
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/security?serverTimezone=Asia/Seoul
+    username: xanqus
+    password: 1234
+
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 147917049400-h66dmoqgb4v7ebqg57ebc0q7la39vjjf.apps.googleusercontent.com
+            client-secret: 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
+            scope:
+            - email
+            - profile
